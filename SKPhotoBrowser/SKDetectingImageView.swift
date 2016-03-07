@@ -9,12 +9,11 @@
 import UIKit
 
 @objc protocol SKDetectingImageViewDelegate {
-    func handleImageViewSingleTap(view: UIImageView, touch: UITouch)
-    func handleImageViewDoubleTap(view: UIImageView, touch: UITouch)
+    func handleImageViewSingleTap(view:UIImageView, touch: UITouch)
+    func handleImageViewDoubleTap(view:UIImageView, touch: UITouch)
 }
 
-class SKDetectingImageView: UIImageView {
-    weak var delegate: SKDetectingImageViewDelegate?
+class SKDetectingImageView:UIImageView{
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -24,6 +23,8 @@ class SKDetectingImageView: UIImageView {
         super.init(frame: frame)
         userInteractionEnabled = true
     }
+    
+    weak var delegate:SKDetectingImageViewDelegate?
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesEnded(touches, withEvent: event)
